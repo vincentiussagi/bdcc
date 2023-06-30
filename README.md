@@ -7,117 +7,138 @@ Amazon DynamoDB is an extensively supervised NoSQL database service accessible t
 <br>
 DynamoDB's schema-less data model eliminates the need for rigid table structures and predefined schemas. Instead, it adopts a key-value store approach, organizing data into tables and items. This flexibility enables agile development and seamless adjustment to evolving data needs. Moreover, DynamoDB offers automated data replication and multi-region capabilities, guaranteeing high availability and durability..
 
-## **Create a Table in DynamoDB**
+## **Creating a Table in DynamoDB**
 First, we search for "DynamoDB" in the AWS service menu. <br>
 <br>
-![image] (https://github.com/vincentiussagi/bdcc/blob/a7250020b9c5d60b89f18c7bb47126373f7519a8/1.png)) <br>
+![image](https://github.com/vincentiussagi/bdcc/blob/main/1.png?raw=true)<br>
 <br>
 
-Then, to create a table, click "Create table". <br>
+Click "Tables" on the menu on the left side <br>
 <br>
-![image]() <br>
-<br>
-
-After that, a menu will display with options for configuring the table. Fill in the table name, partition key, and sort key (optional) in the table details. <br>
-<br>
-![image]() <br>
+![image](https://github.com/vincentiussagi/bdcc/blob/main/2.png?raw=true)<br>
 <br>
 
-Actually, users can alter the table's features, such as the capacity calculator and table class. I simply use the default parameters for this task.Click "Create Table" once all the settings have been made. <br>
+Then click on "Create table". <br>
 <br>
-![image]() <br>
-<br>
-
-Following creation, the table will appear in the DynamoDB tables list. Wait a short while for the status table to change to active if it is initially still developing.<br>
-<br>
-![image]() <br>
+![image](https://github.com/vincentiussagi/bdcc/blob/main/3.png?raw=true)<br>
 <br>
 
-Go to Explore items: your-table-name, select "Create item," enter the value for the table attribute, and then select "Create item" to add data to the table.<br>
+Then a table details window menu will pop-up. Fill in the table name, partition key, and sort key (optional) in the table details. <br>
 <br>
-![image]() <br>
-<br>
-
-You can also add new attributes by clicking "Add new attribute" in the upper right corner of the image above, keeping in mind the data type.<br>
-<br>
-![image]()<br>
+![image](https://github.com/vincentiussagi/bdcc/blob/main/4.png?raw=true)<br>
 <br>
 
-## **Import Data**
-Simply select DynamoDB from the menu, click Import from S3, and then select "Import from S3" to import datasets from an S3 bucket. <br>
+Now it will show a menu where the user can alter the table's features, such as the capacity calculator and table class. We'll simply use the default parameters for this task. Click "Create Table" once all the settings have been made. <br>
 <br>
-![image]() <br>
-<br>
-
-You can upload your files to the S3 bucket if you haven't already. In this case, I only need to navigate to the S3 directory since I have uploaded my files to S3. After that click "browse" to find the directory for the file to upload. <br>
-<br>
-![image]() <br>
+![image](https://github.com/vincentiussagi/bdcc/blob/main/5.png?raw=true) <br>
 <br>
 
-Ensure that your file format matches your file format in the "Import file format" field. In this instance, I'm uploading from a csv file, so I click "Next" after selecting csv as the file format. <br>
+Following creation, the table will appear in the DynamoDB tables list. Wait a minute or two until the status change to active if it is initially still developing.<br>
 <br>
-<img width="608" alt="image" src=""> <br>
-<br>
-
-Then, fill out the table details. For the partition keys, choose the column that has the data's unique value. And then just click next, next, and import.<br>
-<br>
-<img width="408" alt="image" src="">
+![image](https://github.com/vincentiussagi/bdcc/blob/main/6.png?raw=true) <br>
 <br>
 
-Simply wait for the import status to be finished. The quantity of datasets determines the import time. <br>
+Next, Go to Explore items: <br>
 <br>
-![image]() <br>
+![image](https://github.com/vincentiussagi/bdcc/blob/main/7.png?raw=true) <br>
 <br>
-
-You can go back and browse items to see your newly imported datasets when the dataset has been fully loaded. And the image below shows how my dataset appears.<br>
+Select [your-table-name] -> select "Create item", <br>
 <br>
-<img width="607" alt="image" src=""><br>
+![image](https://github.com/vincentiussagi/bdcc/blob/main/8.png?raw=true) <br>
 <br>
-
-## **Scan Data**
-Scanning and searching for data can help you uncover information more quickly. Let's try running a values ​​scan on the data first. I selected "scan" then "table to scan" and "attributes to project filter" because I was looking for Sales ($). You can quickly search using filters by filtering the value. in this case, I'm looking for the attribute "Sales ($)" when the value is "greater than or equal to 10.4". After that click "run". <br>
+Enter the value for the table attribute, and then select "Create item" to add data to the table. You can also add new attributes by clicking "Add new attribute" in the upper right corner, keeping in mind the data typr<br>
 <br>
-![image]()<br>
+![image](https://github.com/vincentiussagi/bdcc/blob/main/9.png?raw=true) <br>
 <br>
 
-Here is the outcome of my scanning, indicating that there are 194 rows of Advertising budget and sales with the Sales ($) when the value is greater than or equal to 10.4. <br>
+Now we check the items returned<br>
 <br>
-<img width="602" alt="image" src=""><br>
-<br>
-
-## **Querying Data**
-In fact, dynamo database queries are very sophisticated, thus for the purposes of this experiment, I only employ queries that search for data using unique keys. Let's try searching for unique data. <br>
-<br>
-![image]()<br>
+![image](https://github.com/vincentiussagi/bdcc/blob/main/10.png?raw=true) <br>
 <br>
 
-You can choose query and then enter the partition key from your data in "ID" as a partition key. In this case, I'm using "79" to search for things with partition keys equal to 79, and the outcome is shown in the image below. <br>
+## **Importing Data in DynamoDB**
+On the DynamoDB services menu, Click "Import From S3" on the menu on the left side <br>
 <br>
-<img width="598" alt="image" src=""><br>
+![image](https://github.com/vincentiussagi/bdcc/blob/main/11.png?raw=true) <br>
 <br>
 
-## **Export Data**
+Then select "Import from S3" to import datasets from an S3 bucket. <br>
+<br>
+![image](https://github.com/vincentiussagi/bdcc/blob/main/12.png?raw=true) <br>
+<br>
+
+As the menu says, it is importing from S3 Buckets, so you might want to make sure you already uploaded the data there. If done click "browse" and find the directory for the file to upload. <br>
+<br>
+![image](https://github.com/vincentiussagi/bdcc/blob/main/13.png?raw=true) <br>
+<br>
+
+Because I use a csv file, so I choose 'CSV' as the import file format. Next, make sure about the csv header and delimiter. If done, click next. <br>
+<br>
+![image](https://github.com/vincentiussagi/bdcc/blob/main/14.png?raw=true)  <br>
+<br>
+
+Then, fill out the table details. For the partition keys, choose the column that has the data's unique value, while making sure the data type. Usually it is the leftmost attribute in the dataset. And then just click next, next, and import.<br>
+<br>
+![image](https://github.com/vincentiussagi/bdcc/blob/main/15.png?raw=true) <br>
+<br>
+
+Now we wait for the import status to be finished. The quantity of datasets determines the import time. <br>
+<br>
+![image](https://github.com/vincentiussagi/bdcc/blob/main/16.png?raw=true) <br>
+<br>
+
+Now that it's finished, go back to 'Explore items' menu and browse items to see the newly imported datasets.<br>
+<br>
+![image](https://github.com/vincentiussagi/bdcc/blob/main/17.png?raw=true) <br>
+<br>
+
+## **Scanning Data in DynamoDB**
+Performing scans and searches can expedite the process of retrieving information. <br>
+To begin, let's attempt a values scan on the data. Here, I opted for the "scan" option, followed by selecting the "table to scan" and specifying the "attributes to project filter" based on my search for Sales data. By applying filters, you can swiftly narrow down your search by specifying the desired attribute, such as "Overall" with a condition like "equal to 70" Once the necessary filters are set, simply click "run" to initiate the search. <br>
+<br>
+![image](https://github.com/vincentiussagi/bdcc/blob/main/18.png?raw=true) <br>
+<br>
+
+Here is the results : <br>
+<br>
+![image](https://github.com/vincentiussagi/bdcc/blob/main/19.png?raw=true) <br>
+<br>
+
+
+## **Querying Data in DynamoDB**
+The fact is, DynamoDB queries offer a wide range of sophisticated capabilities. However, for the purpose of this experiment, I will focus on utilizing queries that search for data using unique keys. Let's proceed with searching for unique data using these queries.<br>
+<br>
+![image](https://github.com/vincentiussagi/bdcc/blob/main/20.png?raw=true) <br>
+<br>
+
+You can choose query and then enter the partition key from your data in "ID" as a partition key. In this case, I'm using "6207". Here's the result : <br>
+<br>
+![image](https://github.com/vincentiussagi/bdcc/blob/main/21.png?raw=true) <br>
+<br>
+
+## **Exporting Data in DynamoDB**
 Your table can be exported and stored on S3. Your first step should be to select "Export to S3" from the Dynamo DB menu. <br>
 <br>
-![image]() <br>
+![image](https://github.com/vincentiussagi/bdcc/blob/main/22.png?raw=true) <br>
+<br>
+<br>
+![image](https://github.com/vincentiussagi/bdcc/blob/main/23.png?raw=true) <br>
+<br>
+Then, a display of the export details will appear. You must fill out the source table you want to import and the S3 bucket's destination. Just try to export the table we created earlier :<br>
+<br>
+![image](https://github.com/vincentiussagi/bdcc/blob/main/24.png?raw=true) <br>
 <br>
 
-<!-- Then, a display of the export details will appear. You must fill out the source table you want to import and the S3 bucket's destination. In this case, i've used the default settings for additional options. After that, click Export. <br> -->
+Wait until it's done :<br>
 <br>
-![image]() <br>
-<br>
-
-Simply wait for the export table status to be completed. Once it is, the display will look like the one in the previous image. <br>
-<br>
-![image]()<br>
+![image](https://github.com/vincentiussagi/bdcc/blob/main/25.png?raw=true) <br>
 <br>
 
-After that, let's check to the AWS bucket <br>
+Now is time to check the AWS bucket <br>
 <br>
-![image]()<br>
+![image](https://github.com/vincentiussagi/bdcc/blob/main/26.png?raw=true) <br>
 <br>
-
-As can be observed, exporting data from DynamoDB has resulted in the appearance of a new folder with the name "AWSDynamoDB/.". Therefore, the export is finished.
+There it is! It will displayed as "AWSDynamoDB/.". Therefore, the export is finished.
 <br>
 
 ## **Conclusion**
